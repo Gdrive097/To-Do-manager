@@ -5,7 +5,7 @@ import TodoForm from './components/TodoForm'
 import TodoItem from './components/TodoItem'
 
 
-hello
+
 function App() {
   const [todos, setTodos] = useState([])
 
