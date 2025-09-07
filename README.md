@@ -1,12 +1,45 @@
-# React + Vite
+# To-Do Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-17.0.2-blue?logo=react) ![Vite](https://img.shields.io/badge/Vite-4.0-brightgreen?logo=vite) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.0-blue?logo=tailwind-css) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
 
-Currently, two official plugins are available:
+A modern, responsive **To-Do application** that helps users organize, track, and manage daily tasks efficiently. Built with **React**, **Vite**, and **Tailwind CSS**, this app offers a clean and interactive user interface with persistent task storage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌟 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Add, Edit, Delete Tasks** – Quickly manage your tasks.
+- **Mark Tasks as Completed** – Easily toggle task completion status.
+- **Persistent Data Storage** – Tasks are saved in **localStorage** to retain data across browser sessions.
+- **Responsive Design** – Works perfectly on desktops, tablets, and mobile devices.
+- **Clean UI** – Minimalist design using Tailwind CSS for a modern look.
+
+---
+
+## 🛠️ Technologies Used
+
+- **Frontend:** React  
+- **Build Tool:** Vite  
+- **Styling:** Tailwind CSS  
+- **Programming Language:** JavaScript  
+- **State Management:** React Context API (if applicable)  
+- **Routing:** React Router (optional)  
+
+---
+
+## 🌐 Live Demo
+
+Check out the live app here: [To-Do Manager on Netlify](https://adorable-todo-app.netlify.app)
+
+---
+
+## 📂 Project Structure
+
+## To-Do-manager/
+## ├── public/ # Static assets
+## ├── src/ # React source code
+## │ ├── App.jsx
+## │ ├── index.js
+## │ └── components/ # Individual UI components
+## ├── package.json # Project metadata and dependencies
+## └── vite.config.js # Vite configuration 
