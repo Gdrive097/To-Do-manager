@@ -29,7 +29,7 @@ A modern, responsive **To-Do application** that helps users organize, track, and
 
 ## 🌐 Live Demo
 
-Check out the live app here: [To-Do Manager on Netlify](https://adorable-todo-app.netlify.app)
+Check out the live app here: [To-Do Manager on Netlify](https://todo-manager-bipin.netlify.app/)
 
 ---
 
