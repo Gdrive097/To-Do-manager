@@ -66,7 +66,8 @@ function App() {
       <TodoProvider
       value={{ todos, addTodo, updateTodo, deleteTodo, toggleComplete, toggleSelect, selectedTodos , deleteSelectedTodos, selectAll}}
     >
-      <div className="min-h-screen px-4 py-10 bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700">
+      <div className="min-h-screen px-4 py-10 pt-50 bg-gradient-to-br from-indigo-900 via-purple-800 to-pink-700">
+        
         <div className="w-full max-w-2xl p-6 mx-auto shadow-xl bg-white/90 backdrop-blur-md rounded-2xl">
           <h1 className="mb-6 text-3xl font-bold text-center text-indigo-800">
             CREATE YOUR <b><u>TO-DO</u></b> LIST
