@@ -6,31 +6,29 @@ function TodoItem({ todo }) {
   const [todoMsg, setTodoMsg] = useState(todo.todo || "");
 
   const {
-    todos,
     updateTodo,
     deleteTodo,
     toggleComplete,
     toggleSelect,
     selectedTodos,
-    selectAll,
   } = useTodo();
 
-
   const editTodo = () => {
-    updateTodo(todo.id, { ...todo, todo: todoMsg });
+    const updatedTodo = {
+      ...todo,
+      todo: todoMsg,
+      lastUpdated: new Date().toISOString(), // Optional: Add timestamp
+    };
+    updateTodo(todo.id, updatedTodo);
     setIsTodoEditable(false);
   };
 
-  const toggleCompleted = () => {
-    toggleComplete(todo.id);
+  const handleCheckboxChange = () => {
+    toggleComplete(todo.id);  // Mark as complete/incomplete
+    toggleSelect(todo.id);    // Select/deselect
   };
 
   const isSelected = selectedTodos.includes(todo.id);
-
-   const handleCheckboxChange = () => {
-    toggleComplete(todo.id);  // ✅ toggle completed
-    toggleSelect(todo.id);    // ✅ toggle selected
-  };
 
   return (
     <div
@@ -38,14 +36,16 @@ function TodoItem({ todo }) {
         todo.completed ? "bg-[#c6e9a7]" : "bg-[#ccbed7]"
       }`}
     >
-      {/* ✅ Single checkbox for both */}
+      {/* ✅ Unified checkbox for select + complete */}
       <input
         type="checkbox"
         className="w-5 h-5 cursor-pointer accent-indigo-600"
-        checked={isSelected}   // we drive everything off selection
-        onChange={()=>toggleSelect(todo.id)}
+        checked={isSelected}
+        onChange={handleCheckboxChange}
+        title="Select and Toggle Complete"
       />
 
+      {/* ✅ Editable todo text input */}
       <input
         type="text"
         className={`border outline-none w-full bg-transparent rounded-lg ${
@@ -54,35 +54,50 @@ function TodoItem({ todo }) {
         value={todoMsg}
         onChange={(e) => setTodoMsg(e.target.value)}
         readOnly={!isTodoEditable}
+        title={isTodoEditable ? "Editing..." : "Todo Text"}
       />
 
-      {/* Edit / Save Button */}
-       <button
+      {/* ✅ Complete Toggle Button */}
+      <button
+        title="Mark Complete"
         className="inline-flex items-center justify-center w-8 h-8 text-sm bg-green-100 border rounded-lg border-black/10 hover:bg-green-200 shrink-0"
         onClick={() => toggleComplete(todo.id)}
       >
         {todo.completed ? "✅" : "⭕"}
       </button>
+
+      {/* ✅ Edit / Save Button */}
       <button
+        title={isTodoEditable ? "Save" : "Edit"}
         className="inline-flex items-center justify-center w-8 h-8 text-sm border rounded-lg border-black/10 bg-gray-50 hover:bg-gray-100 shrink-0 disabled:opacity-50"
         onClick={() => {
           if (todo.completed) return;
           if (isTodoEditable) {
             editTodo();
-          } else setIsTodoEditable((prev) => !prev);
+          } else {
+            setIsTodoEditable((prev) => !prev);
+          }
         }}
         disabled={todo.completed}
       >
-        {isTodoEditable ? "📁" : "✏️"}
+        {isTodoEditable ? "💾" : "✏️"}
       </button>
 
-      {/* Delete Button */}
+      {/* ✅ Delete Button */}
       <button
+        title="Delete Todo"
         className="inline-flex items-center justify-center w-8 h-8 text-sm border rounded-lg border-black/10 bg-gray-50 hover:bg-gray-100 shrink-0"
         onClick={() => deleteTodo(todo.id)}
       >
         ❌
       </button>
+
+      {/* ✅ Optional Last Updated Timestamp */}
+      {todo.lastUpdated && (
+        <p className="text-xs text-gray-500 ml-2">
+          Last updated: {new Date(todo.lastUpdated).toLocaleString()}
+        </p>
+      )}
     </div>
   );
 }
