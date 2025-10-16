@@ -99,8 +99,21 @@ function App() {
               </button>
             </div>
           )}
-
-          
+          {todos.length > 0 && (
+            <div className="flex justify-end mt-2">
+              <button
+                onClick={() => {
+                  if (window.confirm("Are you sure you want to delete all todos?")) {
+                    setTodos([]);
+                    setSelectedTodos([]);
+                  }
+                }}
+                className="px-5 py-2 font-medium text-white transition bg-gray-600 shadow-md rounded-xl hover:bg-gray-700 focus:ring focus:ring-gray-300"
+              >
+                Clear All
+              </button>
+            </div>
+          )}
 
           <div className="flex flex-col gap-3 mt-1">
             {todos.length > 0 ? (
