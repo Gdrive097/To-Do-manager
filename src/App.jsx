@@ -103,9 +103,11 @@ function App() {
           
 
           <div className="flex flex-col gap-3 mt-1">
-            {todos.map((todo) => (
-              <TodoItem key={todo.id} todo={todo} />
-            ))}
+            {todos.length > 0 ? (
+              todos.map((todo) => <TodoItem key={todo.id} todo={todo} />)
+            ) : (
+              <p className="text-center text-gray-500">No tasks yet. Add your first to-do!</p>
+            )}
           </div>
         </div>
       </div>
